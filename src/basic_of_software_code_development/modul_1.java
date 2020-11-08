@@ -1,3 +1,5 @@
+package basic_of_software_code_development;
+
 import static java.lang.Math.*;
 
 public class modul_1 {
@@ -126,8 +128,6 @@ public class modul_1 {
         } else {
             System.out.println(1 / (x * x * x + 6));
         }
-
-        //task 1
 
     }
 }
