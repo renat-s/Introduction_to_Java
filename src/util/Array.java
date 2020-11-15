@@ -21,6 +21,17 @@ public class Array {
         }
     }
 
+    public static int[] generateArray(int arraySize) {
+        Random r = new Random();
+        int[] array = new int[arraySize];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = r.nextInt(10);
+        }
+
+        return array;
+    }
+
     public static int[][] generateArrayOfArray(int numberOfLines, int numberOfColumns) {
         int[][] array = new int[numberOfLines][numberOfColumns];
 
@@ -33,6 +44,7 @@ public class Array {
 
         return array;
     }
+
 
 
 }
