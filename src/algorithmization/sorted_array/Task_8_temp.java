@@ -34,15 +34,24 @@ public class Task_8_temp {
     }
 
     public static int gcd(int firstNumber, int secondNumber) {
-        while (firstNumber - secondNumber != 0) {
-            if (firstNumber > secondNumber) {
-                firstNumber -= secondNumber;
-            } else {
-                secondNumber -= firstNumber;
-            }
+//        while (firstNumber - secondNumber != 0) {
+//            if (firstNumber > secondNumber) {
+//                firstNumber -= secondNumber;
+//            } else {
+//                secondNumber -= firstNumber;
+//            }
+//        }
+//
+//        return firstNumber;
+        int t;
+
+        while (secondNumber != 0) {
+            t = secondNumber;
+            secondNumber = firstNumber % secondNumber;
+            firstNumber = t;
         }
 
-        return firstNumber;
+        return Math.abs(firstNumber);
     }
 
 }
