@@ -4,14 +4,14 @@ import util.Array;
 
 public class Task_1 {
     public static void main(String[] args) {
-        int size1 = 7;
-        int size2 = 9;
+        int sizeArray1 = 7;
+        int sizeArray2 = 9;
         int k = 3;
 
-        int[] array = Array.generateArray(size1);
+        int[] array = Array.generateArray(sizeArray1);
         Array.printArray(array);
 
-        int[] array2 = Array.generateArray(size2);
+        int[] array2 = Array.generateArray(sizeArray2);
         Array.printArray(array2);
         System.out.println("Число К равно " + k);
 
