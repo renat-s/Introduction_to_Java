@@ -15,7 +15,7 @@ public class Task_6 {
         int sum = 0;
 
         for (int i = 2; i < array.length; i++) {
-            if (simpleNumber(i)) {
+            if (isNumberSimple(i)) {
                 sum = sum + array[i];
             }
         }
@@ -23,7 +23,7 @@ public class Task_6 {
         return sum;
     }
 
-    public static boolean simpleNumber(int number) {
+    public static boolean isNumberSimple(int number) {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
