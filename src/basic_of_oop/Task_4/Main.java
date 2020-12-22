@@ -1,41 +1,23 @@
 package basic_of_oop.Task_4;
 
-import basic_of_oop.Task_4.entity.Cave;
+import basic_of_oop.Task_4.entity.Treasure;
+import basic_of_oop.Task_4.menu.Menu;
+import basic_of_oop.Task_4.storage.TreasureCSVStorage;
+import basic_of_oop.Task_4.storage.TreasureStorage;
 
-import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
-        Cave cave = new Cave("Cave");
+        TreasureStorage treasureStorage = new TreasureCSVStorage();
+        List<Treasure> treasureList = treasureStorage.loadTreasureList();
 
-        int choice;
-        do {
-            System.out.println("What do you want?");
-            System.out.println("1. Watch all treasures");
-            System.out.println("2. Choosing the most expensive treasure");
-            System.out.println("3. Choosing treasures for given amount");
-            System.out.print("Enter: ");
-            choice = in.nextInt();
-        } while (choice < 1 || choice > 3);
-
-        cave.generateCave();
-        switch (choice) {
-            case 1:
-                cave.showTreasures();
-                break;
-            case 2:
-                double max = cave.findMax();
-                System.out.println(max);
-                break;
-            case 3:
-                System.out.print("Enter value: ");
-                double price = in.nextDouble();
-                cave.findByPrice(price);
-                break;
-            default:
-                break;
+        if (treasureList != null) {
+            Menu menu = new Menu();
+            menu.ShowMenu(treasureList);
+        } else {
+            System.out.println("Произошла ошибка при загрузке данных. Приложение остановлено.");
         }
 
     }

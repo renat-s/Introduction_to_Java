@@ -1,15 +1,18 @@
 package basic_of_oop.Task_4.entity;
 
-public class Treasure {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Treasure implements Serializable {
+    private static final long serialVersionUID = 7339503919851318841L;
     private String name;
-    private double price;
+    private int price;
     private String description;
 
-    public Treasure(String name) {
-        this.name = name;
+    public Treasure() {
     }
 
-    public Treasure(String name, double price, String description) {
+    public Treasure(String name, int price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -19,7 +22,7 @@ public class Treasure {
         return name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -27,7 +30,7 @@ public class Treasure {
         this.name = name;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -43,23 +46,23 @@ public class Treasure {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Treasure treasure = (Treasure) o;
-
-        if (Double.compare(treasure.price, price) != 0) return false;
-        if (!name.equals(treasure.name)) return false;
-        return description != null ? description.equals(treasure.description) : treasure.description == null;
-
+        return Double.compare(treasure.price, price) == 0 &&
+                name.equals(treasure.name) &&
+                Objects.equals(description, treasure.description);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = name.hashCode();
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+        return Objects.hash(name, price, description);
+    }
+
+    @Override
+    public String toString() {
+        return "Treasure{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
